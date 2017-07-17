@@ -1,0 +1,48 @@
+version: 1
+formatters:
+  info:
+    format: '[%(asctime)s]  %(levelname)-8s %(message)s'
+  request:
+    format: '[%(asctime)s]  %(levelname)-8s %(address)-21s %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: info
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: info
+    filename: /tmp/proxypooler.log
+    maxBytes: 51200000
+    backupCount: 10
+  request:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: request
+    filename: /tmp/proxypooler_server.log
+    maxBytes: 51200000
+    backupCount: 10
+  request_console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: request
+    stream: ext://sys.stdout
+loggers:
+  debug_logger:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+  file_logger:
+    level: DEBUG
+    handlers: [file]
+    propagate: no
+  server_logger:
+    level: DEBUG
+    handlers: [request]
+    propagate: no
+  server_debug_logger:
+    level: DEBUG
+    handlers: [request_console]
+    propagate: no

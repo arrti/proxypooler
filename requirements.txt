@@ -1,0 +1,8 @@
+aiohttp
+celery
+eventlet
+msgpack-python
+pika
+PyYAML
+redis
+requests
