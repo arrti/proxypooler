@@ -1,4 +1,6 @@
 # ProxyPooler: 一个基于Celery的异步/分布式代理存储/验证器
+[![Build Status](https://travis-ci.org/arrti/proxypooler.svg?branch=master)](https://travis-ci.org/arrti/proxypooler)
+
 传入代理和它的验证周期，proxypooler会将其存储并在代理验证周期到来时验证代理的有效性，直到失效时才将其移除。不同的代理可以配置不同的验证周期。 Celery使用Eventlet实现并发。   
 本项目可以作为其他项目的一个模块使用，也可以作为一个独立的服务通过websocket进行通信。    
 可以通过自定义后台存储、序列化/反序列化函数、定期执行的函数（作为Celery的任务）等来周期性地处理你存入的其他类型数据。
