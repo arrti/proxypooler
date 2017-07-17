@@ -63,7 +63,7 @@ python run_sender.py
 ## 测试
 下面2种方法任选其一即可。
 ### tox
-使用`tox`进行集成测试
+使用`tox`进行集成测试。  
 首先安装`tox`：
 ```
 pip install tox
